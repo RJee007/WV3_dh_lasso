@@ -44,7 +44,7 @@ lasso_best <- glmnet(x_vars, y_var, alpha = 1, lambda = cv_output$lambda.min)
 cl <- coef(lasso_best)
 cl2 <- as.data.frame(cl[cl[,1]!=0,])
 
-# vl: variable list. The independent vars selected by glmnet
+# vl: variable list. The predictor (x) vars selected by glmnet
 vl <- as.list(rownames(cl2))
 vl <- vl[vl != "(Intercept)"] # remove "(Intercept)"
 # df_lm: make a dataframe suitable for lm
